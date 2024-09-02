@@ -1,0 +1,20 @@
+<!-- index.ejs -->
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body>
+    <%- include('navbar', {links: links}) %>
+    <h1>Welcome to <%= title %>!</h1>
+    <ul>
+        <% messages.forEach((message,index) => { %>
+            <li>
+                <strong><%= message.user %>:</strong> <%= message.text %> <em>(<%= message.added.toLocaleString() %>)</em>
+                <a href="/message/<%= index %>">Open</a> <!-- Open link pointing to the message details page -->
+            </li>
+        <% }); %>
+    </ul>
+    <%- include('footer'); -%> 
+  </body>
+</html>
